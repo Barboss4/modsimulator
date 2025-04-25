@@ -82,13 +82,26 @@ function closeModal() {
 }
 
 function playRandomPassSound() {
+  const bgMusic = document.getElementById("bg-music");
   const audio = document.getElementById("pass-sound");
+
+  // Pausa a música de fundo
+  bgMusic.pause();
+
+  // Escolhe som aleatório
   const sounds = [
     "sounds/pass_bad1.mp3",
     "sounds/pass_bad2.mp3"
   ];
   const randomIndex = Math.floor(Math.random() * sounds.length);
   audio.src = sounds[randomIndex];
+
+  // Quando terminar, retoma a música de fundo
+  audio.onended = () => {
+    bgMusic.play();
+  };
+
+  // Toca o som escolhido
   audio.play();
 }
 
