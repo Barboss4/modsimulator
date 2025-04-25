@@ -37,6 +37,9 @@ function startGame() {
   life = 100;
   speed = 3000;
   paused = false;
+  const bgMusic = document.getElementById('bg-music');
+  bgMusic.volume = 0.3; // volume de 0.0 a 1.0
+  bgMusic.play();
 
   updateScore();
   updateLife();
@@ -186,7 +189,7 @@ function decreaseLifeOverTime() {
 
 // Aumenta a dificuldade do jogo ao reduzir o tempo entre spawns
 function adjustSpeed() {
-  if (score % 50 === 0 && speed > 100) {
+  if (score % 20 === 0 && speed > 100) {
     speed -= 200;
   }
 }
@@ -220,6 +223,8 @@ function updateStreamerGif() {
 function returnToMenu() {
   clearInterval(gameInterval);
   clearInterval(dynamicSpawner);
+  document.getElementById('bg-music').pause();
+  document.getElementById('bg-music').currentTime = 0;
   paused = false;
   updateScore();
   updateLife();
@@ -227,4 +232,19 @@ function returnToMenu() {
   document.getElementById('left-chat').innerHTML = '';
   hideAllScreens();
   document.getElementById('menu').classList.remove('hidden');
+}
+
+function checkWin() {
+  if (score >= 1000 && !paused) {
+    paused = true;
+    stopAllSounds();
+    document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo com 1000 pontos!';
+    hideAllScreens();
+    document.getElementById('modal').classList.remove('hidden');
+  }
+}
+
+function updateScore() {
+  document.getElementById('score').innerText = `Pontuação: ${score}`;
+  checkWin(); // ← verifica se venceu
 }
