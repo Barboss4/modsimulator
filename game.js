@@ -118,7 +118,7 @@ function spawnMessage() {
   if (paused) return;
 
   const chat = document.getElementById('chat');
-  const tipo = ['boas', 'ruins', 'neutras'][Math.floor(Math.random() * 3)];
+  const tipo = ['boas', 'ruins', 'neutras', 'muitoboas'][Math.floor(Math.random() * 4)];
   const msg = mensagens[tipo][Math.floor(Math.random() * mensagens[tipo].length)];
 
   const div = document.createElement('div');
@@ -160,7 +160,19 @@ function spawnMessage() {
         setTimeout(() => {
           leftChat.classList.remove('show'); // fade-out automático
         }, 3000);
+      } else if (tipo === 'boas') {
+        score += 5; // recompensa por não remover mensagem boa
+        updateScore();
+      } else if (tipo === 'muitoBoas') {
+        score += 10;
+        updateScore();
+  
+        // Toca o som de superchat
+        const superchat = document.getElementById('superchat');
+        superchat.currentTime = 0;
+        superchat.play();
       }
+      
       div.remove();
     }
   }, 6000);
