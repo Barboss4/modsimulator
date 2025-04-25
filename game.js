@@ -248,7 +248,7 @@ function returnToMenu() {
 }
 
 function checkWin() {
-  if (score >= 1000 && !paused) {
+  if (score >= 500 && !paused) {
     paused = true;
     stopAllSounds();
     document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo com 1000 pontos!';
