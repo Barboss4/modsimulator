@@ -166,11 +166,7 @@ function spawnMessage() {
       } else if (tipo === 'muitoBoas') {
         score += 10;
         updateScore();
-  
-        // Toca o som de superchat
-        const superchat = document.getElementById('superchat');
-        superchat.currentTime = 0;
-        superchat.play();
+        playSound('superchat')
       }
       
       div.remove();
