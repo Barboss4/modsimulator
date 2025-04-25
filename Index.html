@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Mod de Youtuber</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="menu">
+    <h1>Simulador de Mod de Youtuber</h1>
+    <button onclick="startGame()">Iniciar</button>
+    <button onclick="showStory()">Lore</button>
+    <button onclick="showCredits()">Créditos</button>
+  </div>
+
+  <div id="game" class="hidden">
+    <div id="hud">
+      <div id="life-bar-container">
+        <div id="life-bar"></div>
+      </div>
+      <div id="score">Pontuação: 0</div>
+     <!-- <button id="pause-btn" onclick="togglePause()">Pause</button> -->
+      <button id="back-to-menu" class="hidden" onclick="returnToMenu()">Menu</button>
+    </div>
+    <div id="streamer-area">
+      <img id="game-gif" src="gifs/Game.gif" alt="Streamer" />
+      <img id="streamer-gif" src="gifs/batatao.gif" alt="Complementar" />
+    </div>
+    <div id="chat-container">
+      <div id="chat"></div>
+    </div>
+    <div id="left-chat">
+      <!-- Chat que recebe mensagens ruins que não foram clicadas -->
+    </div>
+  </div>
+
+  <div id="modal" class="hidden">
+    <div id="modal-content"></div>
+    <button onclick="closeModal()">Voltar</button>
+  </div>
+
+  <audio id="success-sound" src="sounds/click_ok.mp3"></audio>
+  <audio id="fail-sound" src="sounds/click_bad.mp3"></audio>
+  <audio id="pass-sound"></audio>
+  <audio id="Game-over" src="sounds/game-over.mp3"></audio>
+
+  <script>
+    const mensagens = {
+      boas: [
+        "Adoro esse canal!",
+        "Parabéns pelo vídeo!",
+        "Esse jogo é incrível!",
+        "Você merece mais inscritos!",
+        "Qual a sua placa de vídeo?",
+        "Eae Batatao!"
+      ],
+      ruins: [
+        "Esse canal é uma droga!",
+        "Vai jogar Free Fire!",
+        "Seu noob!",
+        "Stream lixo!",
+        "Isso tá uma vergonha...",
+        "Joga Sap",
+        "Jogo Memezada"
+      ],
+      neutras: [
+        "kkkkkk",
+        "Alguém aí?",
+        "Eu vi isso ontem também",
+        "Comentário aleatório",
+        "Tanto faz...",
+        "eu sou o moustachmeme ninguem gosta de mim",
+        "Querido diario hj eu acordei e vi o mundo diferente"
+      ]
+    };
+  </script>
+
+  <script src="game.js"></script>
+</body>
+</html>
