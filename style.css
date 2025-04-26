@@ -38,6 +38,22 @@ body {
   background-color: #111; /* cinza escuro */
 }
 
+#start-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+#start-btn {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+
 /* Estilo dos botões no menu e no modal */
 #menu button, #modal button {
   margin: 10px;
