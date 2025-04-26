@@ -54,7 +54,7 @@ body {
 }
 
 #score {
-  font-size: 32px; /* aumenta o tamanho da fonte */
+  font-size: 50px; /* aumenta o tamanho da fonte */
   font-weight: bold; /* deixa o texto em negrito */
   color: white; /* deixa o texto branco */
   text-align: right; /* centraliza, se quiser */
