@@ -105,6 +105,29 @@ function playRandomPassSound() {
   audio.play();
 }
 
+function playRandomgoodSound() {
+  const bgMusic = document.getElementById("bg-music");
+  const audio = document.getElementById("good-sound");
+
+  // Pausa a música de fundo
+  bgMusic.pause();
+
+  // Escolhe som aleatório
+  const sounds = [
+    "sounds/superchat.mp3"
+  ];
+  const randomIndex = Math.floor(Math.random() * sounds.length);
+  audio.src = sounds[randomIndex];
+
+  // Quando terminar, retoma a música de fundo
+  audio.onended = () => {
+    bgMusic.play();
+  };
+
+  // Toca o som escolhido
+  audio.play();
+}
+
 function stopAllSounds() {
   const audios = document.querySelectorAll('audio');
   audios.forEach(audio => {
@@ -166,7 +189,7 @@ function spawnMessage() {
       } else if (tipo === 'muitoBoas') {
         score += 10;
         updateScore();
-        playSound('superchat')
+        playRandomgoodSound();
       }
       
       div.remove();
