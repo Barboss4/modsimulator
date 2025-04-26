@@ -145,16 +145,19 @@ body {
 
 /* Estilo individual das mensagens no chat */
 .chat-message {
-  font-size: 1.4em;          /* tamanho grande para visibilidade */
-  padding: 10px;             /* espaço interno */
-  min-height: 25px;          /* altura mínima para consistência visual */
+  font-size: clamp(0.8em, 2vw, 1.2em); /* entre 0.8em e 1.2em conforme largura */
+  padding: 10px;
+  min-height: 25px;
   position: absolute;
   left: 10px;
   bottom: 0;
   width: 90%;
   background-color: #333;
   border-radius: 4px;
-  animation: floatUp 6s linear forwards; /* animação de subida */
+  animation: floatUp 6s linear forwards;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Animação que faz as mensagens subirem e sumirem */
