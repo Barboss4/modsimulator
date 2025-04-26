@@ -13,7 +13,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* fica atrás do conteúdo */
+  z-index: -1; /* fica atrás de todo o conteúdo */
 }
 
 /* Botão para voltar ao menu */
