@@ -53,7 +53,7 @@ body {
   transition: 0.3s;
 }
 
-#score {
+#scored {
   font-size: 50px; /* aumenta o tamanho da fonte */
   font-weight: bold; /* deixa o texto em negrito */
   color: white; /* deixa o texto branco */
