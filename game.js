@@ -168,33 +168,34 @@ function spawnMessage() {
 
   chat.appendChild(div);
 
-  // Remove após 6 segundos (se não for clicada)
-  setTimeout(() => {
-    if (chat.contains(div)) {
-      if (tipo === 'ruins') {
-        life -= 15; // penalidade por deixar passar mensagem ruim
-        const leftChat = document.getElementById('left-chat');
-        leftChat.innerText = msg;
-        leftChat.classList.add('show'); // aparece com fade-in
-        updateLife();
-        playRandomPassSound();
-  
-        // Remove a mensagem após 3 segundos com fade-out
-        setTimeout(() => {
-          leftChat.classList.remove('show'); // fade-out automático
-        }, 3000);
-      } else if (tipo === 'boas') {
-        score += 5; // recompensa por não remover mensagem boa
-        updateScore();
-      } else if (tipo === 'muitoboas') {
-        score += 10;
-        updateScore();
-        playRandomgoodSound();
-      }
-      
-      div.remove();
+// Remove após 6 segundos (se não for clicada)
+setTimeout(() => {
+  if (paused) return; // <-- ADICIONA ISSO AQUI!!
+
+  if (chat.contains(div)) {
+    if (tipo === 'ruins') {
+      life -= 15;
+      const leftChat = document.getElementById('left-chat');
+      leftChat.innerText = msg;
+      leftChat.classList.add('show');
+      updateLife();
+      playRandomPassSound();
+
+      setTimeout(() => {
+        leftChat.classList.remove('show');
+      }, 3000);
+    } else if (tipo === 'boas') {
+      score += 5;
+      updateScore();
+    } else if (tipo === 'muitoboas') {
+      score += 10;
+      updateScore();
+      playRandomgoodSound();
     }
-  }, 6000);
+
+    div.remove();
+  }
+}, 6000);
 }
 // Atualiza a pontuação na HUD
 function updateScore() {
