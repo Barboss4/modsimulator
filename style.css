@@ -14,6 +14,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1; /* fica atrás de todo o conteúdo */
+  filter: brightness(60%);
 }
 
 /* Botão para voltar ao menu */
