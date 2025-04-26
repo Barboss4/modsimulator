@@ -186,7 +186,7 @@ function spawnMessage() {
       } else if (tipo === 'boas') {
         score += 5; // recompensa por não remover mensagem boa
         updateScore();
-      } else if (tipo === 'muitoBoas') {
+      } else if (tipo === 'muitoboas') {
         score += 10;
         updateScore();
         playRandomgoodSound();
@@ -215,7 +215,7 @@ function updateLife() {
     clearInterval(dynamicSpawner);
     updateScore();
 
-    document.getElementById('modal-content').innerText = 'Game Over! Sua pontuação: 0';
+    document.getElementById('modal-content').innerText = 'Você Mamou! Sua pontuação: ${score}';
     hideAllScreens();
     document.getElementById('modal').classList.remove('hidden');
   }
@@ -282,7 +282,7 @@ function checkWin() {
   if (score >= 500 && !paused) {
     paused = true;
     stopAllSounds();
-    document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo com 1000 pontos!';
+    document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo agora se inscreve e deixa o like!';
     hideAllScreens();
     document.getElementById('modal').classList.remove('hidden');
   }
