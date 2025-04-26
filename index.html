@@ -9,7 +9,7 @@
 <body>
   <div id="menu">
     <h1>Simulador de Mod de Youtuber</h1>
-    <button id="start-btn" onclick="startGame()" disabled>Iniciar</button>
+    <button id="start-btn" onclick="startGame()" disabled>Carregando...</button>
     <button onclick="showStory()">Lore</button>
     <button onclick="showCredits()">Créditos</button>
   </div>
@@ -101,7 +101,9 @@
   <script src="game.js"></script>
   <script>
   window.addEventListener('load', () => {
-  document.getElementById('start-btn').disabled = false;
+  const startButton = document.getElementById('start-btn');
+  startButton.disabled = false;
+  startButton.innerText = 'Iniciar'; // <-- muda o texto para "Iniciar" quando carregar
 });
 </script>
 </body>
