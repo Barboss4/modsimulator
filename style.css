@@ -53,6 +53,13 @@ body {
   transition: 0.3s;
 }
 
+#score {
+  font-size: 32px; /* aumenta o tamanho da fonte */
+  font-weight: bold; /* deixa o texto em negrito */
+  color: white; /* deixa o texto branco */
+  text-align: right; /* centraliza, se quiser */
+  margin-top: 5%; /* espaço em cima */
+}
 
 /* Estilo dos botões no menu e no modal */
 #menu button, #modal button {
