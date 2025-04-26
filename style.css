@@ -2,8 +2,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #000;  /* fundo preto */
-  color: white;            /* texto branco */
+  background-image: url('gifs/background.gif');
+  background-size: cover;       /* cobre toda a tela */
+  background-repeat: no-repeat; /* não repete o gif */
+  background-position: center;  /* centraliza o gif */
+  color: white;                 /* texto branco */
 }
 
 /* Botão para voltar ao menu */
