@@ -215,7 +215,7 @@ function updateLife() {
     clearInterval(dynamicSpawner);
     updateScore();
 
-    document.getElementById('modal-content').innerText = 'Você Mamou! Sua pontuação: ${score}';
+    document.getElementById('modal-content').innerText = `Você Mamou! Sua pontuação: ${score}`;
     hideAllScreens();
     document.getElementById('modal').classList.remove('hidden');
   }
@@ -279,7 +279,7 @@ function returnToMenu() {
 }
 
 function checkWin() {
-  if (score >= 500 && !paused) {
+  if (score >= 200 && !paused) {
     paused = true;
     stopAllSounds();
     document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo agora se inscreve e deixa o like!';
