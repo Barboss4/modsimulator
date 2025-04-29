@@ -24,17 +24,26 @@
       <!-- <button id="pause-btn" onclick="togglePause()">Pause</button>-->
       <button id="back-to-menu" class="hidden" onclick="returnToMenu()">Menu</button>
     </div>
+  
     <div id="streamer-area">
       <img id="game-gif" src="gifs/Game.gif" alt="Streamer" />
       <img id="streamer-gif" src="gifs/batatao.gif" alt="Complementar" />
+  
+      <div id="math-challenge" class="hidden">
+        <div id="math-question"></div>
+        <input type="number" id="math-answer" placeholder="Resposta" />
+      </div>
     </div>
+  
     <div id="chat-container">
       <div id="chat"></div>
     </div>
+  
     <div id="left-chat">
       <!-- Chat que recebe mensagens ruins que não foram clicadas -->
     </div>
   </div>
+
 
   <div id="modal" class="hidden">
     <div id="modal-content"></div>
@@ -52,8 +61,8 @@
   <script>
     const mensagens = {
       muitoboas: [
-        "Super chat: Batatão toma 5 reais e bane o desempregado!",
-        "super chat: Salve batatão! Bane o birulinha."
+        "Super chat: Bane o desempregado!",
+        "super chat: Bane o birulinha."
       ],
       boas: [
         "Adoro esse canal!",
@@ -67,7 +76,6 @@
         "Esse canal é uma droga!",
         "Vai jogar Free Fire!",
         "Prefiro o Alanzoka.",
-        "Stream lixo!",
         "Como coloca em 2x?",
         "Joga Sap",
         "Jogo Memezada",
@@ -75,7 +83,6 @@
         "Esse canal era melhor em 2015.",
         "Você só joga isso?",
         "Isso é entretenimento?",
-        "Volta pro LoL, seu bronze!",
         "Mais uma live inútil...",
         "Cadê o carisma?",
         "De novo esse jogo velho?",
