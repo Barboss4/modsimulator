@@ -63,7 +63,7 @@ function showStory() {
       <p>O Brasil virou a Venezuela.</p>
       <p>Bolsonaro é o moderador de um canal Memezada no YouTube.</p>
       <p>Seu trabalho é proteger o streamer de mensagens tóxicas do Lula e dos comunistas e manter o chat limpo!</p>
-      <p>Será que Bolsonaro vai conseguir fazer 400 pontos?</p>
+      <p>Será que Bolsonaro vai conseguir fazer 500 pontos?</p>
     `;
     document.getElementById('modal').classList.remove('hidden');
   }
