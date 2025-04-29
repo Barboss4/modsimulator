@@ -238,7 +238,7 @@ function decreaseLifeOverTime() {
 
 // Aumenta a dificuldade do jogo ao reduzir o tempo entre spawns
 function adjustSpeed() {
-  if (score % 20 === 0 && speed > 100) {
+  if (score % 50 === 0 && speed > 100) {
     speed -= 200;
   }
 }
@@ -284,7 +284,7 @@ function returnToMenu() {
 }
 
 function checkWin() {
-  if (score >= 400 && !paused) {
+  if (score >= 500 && !paused) {
     paused = true;
     stopAllSounds();
     document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo agora se inscreve e deixa o like!';
