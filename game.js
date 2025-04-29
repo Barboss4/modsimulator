@@ -5,12 +5,15 @@ let gameInterval;             // Intervalo principal (não usado no novo sistema
 let speed = 3000;             // Velocidade de geração de mensagens
 let paused = false;           // Estado de pausa do jogo
 let dynamicSpawner;           // Intervalo usado para spawn de múltiplas mensagens
+let mathInterval;
+let mathTimeout;
+let currentAnswer;
 
 // Controla a geração contínua de mensagens com espaçamento entre elas
 function startDynamicSpawn() {
   dynamicSpawner = setInterval(() => {
     if (!paused) {
-      const spawnCount = Math.min(1 + Math.floor(score / 50), 8); // Aumenta o número de mensagens com o score
+      const spawnCount = Math.min(1 + Math.floor(score / 50), 5); // Aumenta o número de mensagens com o score
       for (let i = 0; i < spawnCount; i++) {
         setTimeout(() => {
           if (!paused) {
@@ -50,6 +53,7 @@ function startGame() {
 
   startDynamicSpawn();
   decreaseLifeOverTime();
+  startMathChallenges();
 }
 
 // Mostra a história no modal
@@ -153,7 +157,7 @@ function spawnMessage() {
   div.addEventListener('click', () => {
     if (tipo === 'ruins') {
       score += 10;
-      life = Math.min(100, life + 5); // ganha vida ao clicar corretamente
+      life = Math.min(100, life + 10) // ganha vida ao clicar corretamente
       updateLife();
       playSound('success-sound');
       adjustSpeed();
@@ -292,4 +296,65 @@ function checkWin() {
 function updateScore() {
   document.getElementById('score').innerText = `Pontuação: ${score}`;
   checkWin(); // ← verifica se venceu
+}
+
+function showMathChallenge() {
+  const a = Math.floor(Math.random() * 10) + 1;
+  const b = Math.floor(Math.random() * 10) + 1;
+  const op = Math.random() > 0.5 ? '+' : '-';
+  const question = op === '+' ? `${a} + ${b}` : `${Math.max(a, b)} - ${Math.min(a, b)}`;
+  currentAnswer = eval(question);
+
+  const challengeBox = document.getElementById('math-challenge');
+  const questionElem = document.getElementById('math-question');
+  const inputElem = document.getElementById('math-answer');
+
+  // Define posição aleatória dentro do streamer-area
+  const parent = document.getElementById('streamer-area');
+  const maxX = parent.clientWidth - 300; // largura máxima menos largura do box
+  const maxY = parent.clientHeight - 150; // altura máxima menos altura do box
+  const randX = Math.floor(Math.random() * maxX);
+  const randY = Math.floor(Math.random() * maxY);
+
+  challengeBox.style.left = `${randX}px`;
+  challengeBox.style.top = `${randY}px`;
+
+  questionElem.innerText = `Resolva: ${question}`;
+  inputElem.value = '';
+  challengeBox.classList.remove('hidden');
+  inputElem.focus();
+
+  clearTimeout(mathTimeout);
+  mathTimeout = setTimeout(() => {
+    hideMathChallenge(false); // tempo esgotado, penalidade
+  }, 7000);
+}
+
+function hideMathChallenge(correct) {
+  document.getElementById('math-challenge').classList.add('hidden');
+  clearTimeout(mathTimeout);
+
+  if (correct) {
+    speed = Math.min(speed + 200, 3000); // aumenta velocidade, mínimo de 500
+  } else {
+    speed = Math.max(speed - 200, 500); // penalidade
+  }
+}
+
+document.getElementById('math-answer').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    const val = parseInt(e.target.value);
+    if (!isNaN(val)) {
+      hideMathChallenge(val === currentAnswer);
+    }
+  }
+});
+
+// Ativar desafio a cada 20 segundos
+function startMathChallenges() {
+  mathInterval = setInterval(() => {
+    if (!paused) {
+      showMathChallenge();
+    }
+  }, 15000);
 }
