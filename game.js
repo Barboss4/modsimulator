@@ -284,12 +284,17 @@ function returnToMenu() {
 }
 
 function checkWin() {
-  if (score >= 500 && !paused) {
+  if (score >= 50 && !paused) {
     paused = true;
     stopAllSounds();
     document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo agora se inscreve e deixa o like!';
     hideAllScreens();
     document.getElementById('modal').classList.remove('hidden');
+        // Aguarda 3 segundos para tocar o som de vitória
+    setTimeout(() => {
+      const finishedSound = document.getElementById('finished');
+      finishedSound.play();
+    }, 3000);
   }
 }
 
