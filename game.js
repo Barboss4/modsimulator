@@ -284,7 +284,7 @@ function returnToMenu() {
 }
 
 function checkWin() {
-  if (score >= 50 && !paused) {
+  if (score >= 400 && !paused) {
     paused = true;
     stopAllSounds();
     document.getElementById('modal-content').innerText = '🎉 Parabéns! Você venceu o jogo agora se inscreve e deixa o like!';
@@ -294,7 +294,7 @@ function checkWin() {
     setTimeout(() => {
       const finishedSound = document.getElementById('finished');
       finishedSound.play();
-    }, 3000);
+    }, 4000);
   }
 }
 
