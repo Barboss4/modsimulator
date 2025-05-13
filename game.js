@@ -96,7 +96,9 @@ function playRandomPassSound() {
   const sounds = [
     "sounds/pass_bad1.mp3",
     "sounds/pass_bad2.mp3",
-    "sounds/pass_bad3.mp3"
+    "sounds/pass_bad3.mp3",
+    "sounds/pass_bad4.mp3",
+    "sounds/pass_bad5.mp3"
   ];
   const randomIndex = Math.floor(Math.random() * sounds.length);
   audio.src = sounds[randomIndex];
